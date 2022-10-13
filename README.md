@@ -1,4 +1,3 @@
-# Univ_See-Through
-This project is for Auto-Driver
+# LifeSemantics 과제전형 전세호입니다
 
-최종발표와 최종발표 코드분석 부분 파일 참고
+> 패키지관리는 npm으로 사용했습니다.
