@@ -1,5 +1,7 @@
 /* global kakao */
 import { useEffect } from "react";
+import { MapContainer } from './map.styles';
+import React from "react";
 
 const Map = () => {
   useEffect(() => {
@@ -11,14 +13,10 @@ const Map = () => {
     };
 
     let map = new window.kakao.maps.Map(container, options);
-
-    console.log('map success');
   }, []);
 
   return (
-      
-        <div id="map" style={{width:"500px", height:"400px"}}></div> 
-      
+    <MapContainer id="map" />
   );
 }
 

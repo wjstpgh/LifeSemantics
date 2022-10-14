@@ -1,11 +1,13 @@
-import Map from "./component/map.component";
+import FloatBar from "./component/floatbar/floatbar.component";
+import Map from "./component/map/map.component";
+import React from "react";
 
 const App = () => {
-  console.log(process.env.KAKAO_APP_JS_KEY);
+  
   return (
     <>
       <Map />
-      
+      <FloatBar />
     </>
   );
 }
