@@ -8,6 +8,6 @@ export const FloatBarContainer = styled.div`
   margin: 0 2.5% ;
   background-color: rgba(45, 55, 61, .5);
   position: absolute;
-  top: 45vw;
+  top: 68vh;
   z-index: 9;
 `;
