@@ -3,10 +3,10 @@ import Map from "./component/map/map.component";
 import React from "react";
 
 const App = () => {
-  
+
   return (
     <>
-      <Map />
+      {/* <Map /> */}
       <FloatBar />
     </>
   );
