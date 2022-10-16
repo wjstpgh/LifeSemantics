@@ -1,10 +1,24 @@
 import { FloatBarContainer } from './floatbar.styles';
-import React from "react";
+import React, { useState } from "react";
+import HospPick from '../hosp-pick/hosp-pick.component';
 
 const FloatBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickHandler = () => {
+    setIsOpen(isOpen ? false : true);
+  }
+
   return (
-    <FloatBarContainer>
-      aa
+    <FloatBarContainer
+      onClick={onClickHandler}
+      isOpen={isOpen}>
+      {isOpen ? (
+        // <HospPick />
+        <></>
+      ) : (
+        <></>
+      )}
     </FloatBarContainer>
   );
 }
