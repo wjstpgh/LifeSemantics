@@ -1,0 +1,3 @@
+export enum HOSPPICK_ACTION_TYPES {
+  SET_PICK_ITEMS = 'hosppick/SET_PICK_ITEMS',
+}

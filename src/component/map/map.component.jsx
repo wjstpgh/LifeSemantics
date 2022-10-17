@@ -2,21 +2,24 @@
 import { useEffect } from "react";
 import { MapContainer } from './map.styles';
 import React from "react";
+import { getMap } from "../../utils/kakaomap/kakaomap.utils";
+import { useSelector } from "react-redux";
+import { selectHospdata } from "../../store/hospdata/hospdata.select";
+import HospPick from "../hosp-pick/hosp-pick.component";
 
 const Map = () => {
+  const hosps = useSelector(selectHospdata);
+
   useEffect(() => {
-    let container = document.getElementById("map");
-
-    let options = {
-      center: new window.kakao.maps.LatLng(35.85133, 127.4),
-      level: 3,
-    };
-
-    let map = new window.kakao.maps.Map(container, options);
+    // getMap();
   }, []);
 
   return (
-    <MapContainer id="map" />
+    <MapContainer id="map">
+      {hosps.map((hosp) => (
+        <HospPick key={hosp.id} hosp={hosp} />
+      ))}
+    </MapContainer>
   );
 }
 
