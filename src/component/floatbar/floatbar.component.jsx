@@ -17,7 +17,7 @@ const FloatBar = () => {
       onClick={onClickHandler}
       isOpen={isOpen}>
       {isOpen ? (
-        hosppick.map((hosp) => <HospPick hosp={hosp} />)
+        hosppick.map((hosp) => <HospPick key={hosp.id} hosp={hosp} />)
       ) : (
         <></>
       )}

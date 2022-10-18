@@ -21,9 +21,10 @@ export const GraySpan = styled.span`
   padding: 0 2px;
 `;
 
-export const Del=styled.span`
-  position: absolute;
+export const Del = styled.div`
+  position: relative;
   top: 2px;
   right: 2px;
+  float: right;
   cursor: pointer;
 `;
