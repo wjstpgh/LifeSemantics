@@ -1,6 +1,5 @@
 /* global kakao */
-import Marker from "../../component/marker/marker.components";
-import React from "react";
+import { getIw } from "./kakaomap.htmlElement";
 
 export const getMap = (hospToMarker) => {
   const container = document.getElementById("map");
@@ -17,9 +16,6 @@ export const getMap = (hospToMarker) => {
 }
 
 const getMarker = (arr, map) => {
-  const iwContent = '<div>제형 바버바버바버</div>'
-  const iwRemoveable = false;
-
   arr.map((hosp) => {
     const { XPos, YPos } = hosp;
     const position = new kakao.maps.LatLng(YPos, XPos);
@@ -31,9 +27,17 @@ const getMarker = (arr, map) => {
 
     marker.setMap(map);
 
+    const iwContent = getIw(hosp, false);
+    const iwHoverContent = getIw(hosp, true);
+
     const infowindow = new kakao.maps.InfoWindow({
       content: iwContent,
-      removable: iwRemoveable
+      removable: false
+    });
+
+    const infohoverwindow = new kakao.maps.InfoWindow({
+      content: iwHoverContent,
+      removable: false
     });
 
     kakao.maps.event.addListener(marker, 'click', () => {
@@ -44,9 +48,12 @@ const getMarker = (arr, map) => {
       infowindow.close(map, marker);
     });
 
-    // kakao.maps.event.addListener(marker, 'mouseover',()=>{
+    kakao.maps.event.addListener(marker, 'mouseover', () => {
+      infohoverwindow.open(map, marker);
+    });
 
-    // })
+    kakao.maps.event.addListener(marker, 'mouseout', () => {
+      infohoverwindow.close(map, marker);
+    });
   })
-  console.log(<Marker />)
 }
