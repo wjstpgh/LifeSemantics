@@ -1,3 +1,4 @@
+/* global kakao */
 import Marker from "../../component/marker/marker.components";
 import React from "react";
 
@@ -5,38 +6,47 @@ export const getMap = (hospToMarker) => {
   const container = document.getElementById("map");
 
   let options = {
-    center: new window.kakao.maps.LatLng(126, 37),
-    level: 3,
+    center: new kakao.maps.LatLng(36.988094179528, 127.92606617289),
+    level: 12,
   };
 
-  let map = new window.kakao.maps.Map(container, options);
+  let map = new kakao.maps.Map(container, options);
 
   getMarker(hospToMarker, map);
   return map;
 }
 
 const getMarker = (arr, map) => {
+  const iwContent = '<div>제형 바버바버바버</div>'
+  const iwRemoveable = false;
+
   arr.map((hosp) => {
     const { XPos, YPos } = hosp;
-    const position = new window.kakao.maps.LatLng(XPos, YPos);
+    const position = new kakao.maps.LatLng(YPos, XPos);
 
-    const marker = new window.kakao.maps.Marker({
+    const marker = new kakao.maps.Marker({
       position: position,
       clickable: true
     });
 
     marker.setMap(map);
 
-    const iwContent = <Marker hosp={hosp} />
-    const iwRemoveable = true;
-
-    const infowindow = new window.kakao.maps.infowindow({
+    const infowindow = new kakao.maps.InfoWindow({
       content: iwContent,
       removable: iwRemoveable
     });
 
-    window.kakao.maps.event.addListener(marker, 'click', () => {
+    kakao.maps.event.addListener(marker, 'click', () => {
       infowindow.open(map, marker);
-    })
+    });
+
+    kakao.maps.event.addListener(map, 'dragstart', () => {
+      infowindow.close(map, marker);
+    });
+
+    // kakao.maps.event.addListener(marker, 'mouseover',()=>{
+
+    // })
   })
+  console.log(<Marker />)
 }
