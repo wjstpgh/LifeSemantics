@@ -20,9 +20,9 @@ const Marker = ({ map }) => {
   const getMarker = (arr, map) => {
     arr.map((hosp) => {
       const { XPos, YPos } = hosp;
-      const position = new kakao.maps.LatLng(YPos, XPos);
+      const position = new window.kakao.maps.LatLng(YPos, XPos);
 
-      const marker = new kakao.maps.Marker({
+      const marker = new window.kakao.maps.Marker({
         position: position,
         clickable: true
       });
@@ -53,12 +53,12 @@ const Marker = ({ map }) => {
 
       const iwHoverContent = getIw(hosp, true);
 
-      const infowindow = new kakao.maps.InfoWindow({
+      const infowindow = new window.kakao.maps.InfoWindow({
         content: iwContent,
         removable: false
       });
 
-      const infohoverwindow = new kakao.maps.InfoWindow({
+      const infohoverwindow = new window.kakao.maps.InfoWindow({
         content: iwHoverContent,
         removable: false
       });
