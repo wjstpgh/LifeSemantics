@@ -18,9 +18,9 @@ const persistConfig: ExtendPersistConfig = {
   whitelist: ['hospdata']
 }
 
-const sagaMiddleware = createSagaMiddleware();
-
 const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const sagaMiddleware = createSagaMiddleware();
 
 const middleWares = [sagaMiddleware, logger];
 
