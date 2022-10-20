@@ -6,7 +6,12 @@ const selectHospdataReducer = (state: RootState): HospdataState => state.hospdat
 
 export const selectHospdata = createSelector(
   [selectHospdataReducer],
-  (hosp) => Object.values(hosp.hospdata[0])
+  (hosp) => {
+    if (hosp.hospdata[0]) {
+      return Object.values(hosp.hospdata[0]);
+    }
+    return []
+  }
 );
 
 export const selectHospIsLoading = createSelector(
