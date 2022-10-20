@@ -1,4 +1,4 @@
-# LifeSemantics 과제전형 전세호입니다
+# 카카오 맵 Api
 
 * 패키지관리는 yarn을 사용했습니다.
 
