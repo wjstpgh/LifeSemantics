@@ -3,11 +3,11 @@ export const getMap = () => {
   const container = document.getElementById("map");
 
   let options = {
-    center: new kakao.maps.LatLng(36.988094179528, 127.92606617289),
+    center: new window.kakao.maps.LatLng(36.988094179528, 127.92606617289),
     level: 6,
   };
 
-  let map = new kakao.maps.Map(container, options);
+  let map = new window.kakao.maps.Map(container, options);
 
   kakao.maps.event.addListener(map, 'center_changed', () => {
 
@@ -22,7 +22,7 @@ export const getMap = () => {
 
       displayMarker(x, y, map, markerImg);
 
-      let locPosition = new kakao.maps.LatLng(x, y);
+      let locPosition = new window.kakao.maps.LatLng(x, y);
       map.setCenter(locPosition);
     })
   }
@@ -30,9 +30,9 @@ export const getMap = () => {
 }
 
 export const displayMarker = (x, y, map, markerImg) => {
-  let locPosition = new kakao.maps.LatLng(x, y);
+  let locPosition = new window.kakao.maps.LatLng(x, y);
 
-  new kakao.maps.Marker({
+  new window.kakao.maps.Marker({
     map: map,
     position: locPosition,
     image: markerImg,
@@ -41,20 +41,20 @@ export const displayMarker = (x, y, map, markerImg) => {
 
 export const nowPosMarkImg = () => {
   const imgSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-  const imgSize = new kakao.maps.Size(30, 40);
-  const imgOption = { offset: new kakao.maps.Point(15, 69) };
+  const imgSize = new window.kakao.maps.Size(30, 40);
+  const imgOption = { offset: new window.kakao.maps.Point(15, 69) };
 
-  const markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
+  const markerImg = new window.kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
 
   return markerImg;
 }
 
 export const centerFlagMarkImg = () => {
   const imgSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-  const imgSize = new kakao.maps.Size(30, 40);
-  const imgOption = { offset: new kakao.maps.Point(15, 69) };
+  const imgSize = new window.kakao.maps.Size(30, 40);
+  const imgOption = { offset: new window.kakao.maps.Point(15, 69) };
 
-  const markerImg = new kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
+  const markerImg = new window.kakao.maps.MarkerImage(imgSrc, imgSize, imgOption);
 
   return markerImg;
 }
